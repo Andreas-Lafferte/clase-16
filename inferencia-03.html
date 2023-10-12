@@ -298,15 +298,11 @@ Tenemos estos datos de ingresos (ESI 2021):
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;font-weight: bold;"&gt; media &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 681039.4 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 681039.368 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:center;font-weight: bold;"&gt; sd &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 867298.6 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;font-weight: bold;"&gt; N &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 37124.0 &lt;/td&gt;
+   &lt;td style="text-align:center;font-weight: bold;"&gt; se &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 7385.951 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -384,7 +380,7 @@ class: roja right
 
 ### 1- Resumen sesión anterior
 
-### 2- .yellow[Intervalos de confianza como prueba de hipótesis]
+### .yellow[2- Intervalos de confianza como prueba de hipótesis]
 
 ### 3- Lógica del contraste de hipótesis
 
@@ -393,6 +389,91 @@ class: roja right
 ]
 ---
 
+## Intervalos de confianza como pruebas de hipótesis I
+
+Si .green.bold[no hay superposición de intervalos, hay  diferencias poblacionales] entre los grupos que estamos comparando.
+
+--
+
+
+Por ejemplo, veamos la distribución del ingreso de las personas ocupadas según sexo:
+
+
+&lt;table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;font-weight: bold;"&gt; sexo &lt;/th&gt;
+   &lt;th style="text-align:center;font-weight: bold;"&gt; media &lt;/th&gt;
+   &lt;th style="text-align:center;font-weight: bold;"&gt; se &lt;/th&gt;
+   &lt;th style="text-align:center;font-weight: bold;"&gt; low &lt;/th&gt;
+   &lt;th style="text-align:center;font-weight: bold;"&gt; upp &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Hombres &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 749045.5 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 11419.621 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 726662.7 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 771428.3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Mujeres &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 586178.4 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 8595.781 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 569330.5 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 603026.4 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+## Intervalos de confianza como pruebas de hipótesis II
+
+
+--
+.medium[
+Podemos decir que, con un 95%, existen diferencias estádisticamente significativas en el promedio de ingresos entre hombres y mujeres.
+]
+---
+## Intervalos de confianza como pruebas de hipótesis III
+
+- OJO, si los intervalos sí se superponen, no podemos decir que no hay diferencias poblacionales... 
+
+
+- Aún existe la posibilidad de que existan diferencias entre grupos, para esto existen las pruebas de hipótesis.
+
+---
+
+class: roja right
+
+.pull-left-narrow[
+# .black[Contenidos]
+]
+
+&lt;br&gt; 
+.pull-right-wide[
+
+### 1- Resumen sesión anterior
+
+### 2- Intervalos de confianza como prueba de hipótesis
+
+### .yellow[3- Lógica del contraste de hipótesis]
+
+### 4- Prueba T de Student para diferencia de medias
+
+]
+
+---
+# Inferencias
+
+¿Cómo podemos **inferir** a la población en situaciones de **incertidumbre**?:
+
+
+.center[![:scale 100%](esquema2.drawio.png)]
+
+---
 
 
 

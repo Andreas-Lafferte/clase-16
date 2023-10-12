@@ -50,12 +50,11 @@ esi_pond <- esi %>% as_survey_design(ids = 1, # indica conglomerados de muestreo
 options(survey.lonely.psu = "certainty") # seteamos para que ids no moleste
 
 t1 <- esi_pond %>% 
-  summarise(media = survey_mean(ing_t_p, vartype = NULL),
-            sd = survey_sd(ing_t_p),
-            N = n()) %>% 
+  summarise(media = survey_mean(ing_t_p, vartype = "se")) %>% 
   pivot_longer(cols = everything(),
                names_to = "name",
                values_to = "value") %>% 
+  mutate(name = if_else(str_detect(name,"_se"), "se", name)) %>% 
   kableExtra::kable(format = "html", align = 'c', col.names = c("Estadístico", "Valor")) %>% 
   kableExtra::kable_styling(full_width = F, position = "left", bootstrap_options = "striped") %>% 
   column_spec(1, bold = T) %>% 
@@ -391,7 +390,7 @@ class: roja right
 
 ### 1- Resumen sesión anterior
 
-### 2- .yellow[Intervalos de confianza como prueba de hipótesis]
+### .yellow[2- Intervalos de confianza como prueba de hipótesis]
 
 ### 3- Lógica del contraste de hipótesis
 
@@ -400,6 +399,73 @@ class: roja right
 ]
 ---
 
+## Intervalos de confianza como pruebas de hipótesis I
+
+Si .green.bold[no hay superposición de intervalos, hay  diferencias poblacionales] entre los grupos que estamos comparando.
+
+--
+
+
+Por ejemplo, veamos la distribución del ingreso de las personas ocupadas según sexo:
+
+
+```{r table2, echo=FALSE, include=TRUE}
+esi_pond %>% 
+  group_by(sexo) %>% 
+  summarise(media = survey_mean(ing_t_p, vartype = c("se", "ci"))) %>% rename_with(~ str_remove(.,"media_")) %>% 
+  mutate(sexo = if_else(sexo == 1, "Hombres", "Mujeres")) %>% 
+  kableExtra::kable(format = "html", align = 'c') %>% 
+  kableExtra::kable_styling(full_width = F, position = "center", bootstrap_options = "striped") %>% 
+  row_spec(0, bold = T)
+```
+
+
+---
+## Intervalos de confianza como pruebas de hipótesis II
+
+
+--
+.medium[
+Podemos decir que, con un 95%, existen diferencias estádisticamente significativas en el promedio de ingresos entre hombres y mujeres.
+]
+---
+## Intervalos de confianza como pruebas de hipótesis III
+
+- OJO, si los intervalos sí se superponen, no podemos decir que no hay diferencias poblacionales... 
+
+
+- Aún existe la posibilidad de que existan diferencias entre grupos, para esto existen las pruebas de hipótesis.
+
+---
+
+class: roja right
+
+.pull-left-narrow[
+# .black[Contenidos]
+]
+
+<br> 
+.pull-right-wide[
+
+### 1- Resumen sesión anterior
+
+### 2- Intervalos de confianza como prueba de hipótesis
+
+### .yellow[3- Lógica del contraste de hipótesis]
+
+### 4- Prueba T de Student para diferencia de medias
+
+]
+
+---
+# Inferencias
+
+¿Cómo podemos **inferir** a la población en situaciones de **incertidumbre**?:
+
+
+.center[![:scale 100%](esquema2.drawio.png)]
+
+---
 
 
 
